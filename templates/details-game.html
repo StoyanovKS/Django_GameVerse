@@ -2,9 +2,8 @@
 {% block content %}
 <section id="details">
   <div id="details-wrapper">
-    <img id="details-img"
-         alt="{{ game.title }}"
-         {% if game.screenshot_url %}src="{{ game.screenshot_url }}"{% else %}src="{% static 'images/game-default.png' %}"{% endif %}>
+    <img id="details-img" alt="{{ game.title }}"
+     {% if game.screenshot_url %}src="{{ game.screenshot_url }}"{% else %}src="{% static 'images/game-default.png' %}"{% endif %}>
     <p id="details-title">{{ game.title }}</p>
     <div id="info-wrapper">
       <div id="details-description"><p>Release Date: {{ game.release_date|date:"d M Y" }}</p></div>
