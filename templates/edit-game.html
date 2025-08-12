@@ -1,0 +1,18 @@
+{% extends 'base.html' %}{% load static %}
+{% block content %}
+<section id="create">
+  <div class="form">
+    <h2>{{ form.instance.pk|yesno:"Edit Game,Create Game" }}</h2>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.non_field_errors }}
+      <label>Title: {{ form.title }}</label>
+      <label>Platform: {{ form.platform }}</label>
+      <label>Release Date: {{ form.release_date }}</label>
+      <label>Challenge Level: {{ form.level }}</label>
+      <label>Screenshot URL: {{ form.screenshot_url }}</label>
+      <button type="submit">{{ form.instance.pk|yesno:"Edit,Create Game" }}</button>
+    </form>
+  </div>
+</section>
+{% endblock %}

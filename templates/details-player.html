@@ -1,0 +1,30 @@
+{% extends 'base.html' %}{% load static %}
+{% block content %}
+<section id="details">
+  <div id="details-wrapper">
+    <img id="details-img"
+         src="{% static 'images/player-pro.png' %}" alt="avatar"
+         {% if not player.is_pro %}style="display:none"{% endif %}>
+    <img id="details-img"
+         src="{% static 'images/player-regular.png' %}" alt="avatar"
+         {% if player.is_pro %}style="display:none"{% endif %}>
+    <p id="details-title">{{ player.nickname }}</p>
+    <div id="info-wrapper">
+      <p>Email: {{ player.email }}</p>
+      {% if player.achievements %}<p>{{ player.achievements }}</p>{% endif %}
+      {% if top_games %}
+        <p>Player's Top Games:</p>
+        <ul>
+          {% for g in top_games %}
+            <li>Challenge level {{ g.level }}: {{ g.title }} ({{ g.platform }}), released on {{ g.release_date|date:"d M Y" }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </div>
+    <div id="action-buttons">
+      <a href="{% url 'players:edit' %}" id="edit-btn">Edit</a>
+      <a href="{% url 'players:delete' %}" id="delete-btn">Delete</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

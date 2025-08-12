@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<section id="create">
+  <div class="form">
+    <h2>{% if form.instance.pk %}Edit Player{% else %}Create Player{% endif %}</h2>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.non_field_errors }}
+      <label>Nickname: {{ form.nickname }}<span class="helptext">{{ form.fields.nickname.help_text }}</span></label>
+      {% if form.email %}<label>Email: {{ form.email }}</label>{% endif %}
+      {% if form.achievements %}<label>Achievements: {{ form.achievements }}<span class="helptext">{{ form.fields.achievements.help_text }}</span></label>{% endif %}
+      <label>Are you a Pro Player? {{ form.is_pro }}</label>
+      <button type="submit">{% if form.instance.pk %}Edit{% else %}Create{% endif %}</button>
+    </form>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,52 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*$py.class
+
+# Virtual environment
+.venv/
+env/
+venv/
+ENV/
+.venv/
+
+# VS Code
+.vscode/
+.history/
+
+# PyCharm
+.idea/
+
+# macOS / Windows junk
+.DS_Store
+Thumbs.db
+
+# Byte-compiled / C extensions
+*.so
+
+# Local database files
+db.sqlite3
+
+# Logs
+*.log
+
+# Django cache
+*.pot
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+media/
+
+# Staticfiles build dir
+staticfiles/
+
+# Environment variables
+.env
+
+# Node modules (if you add frontend tooling)
+node_modules/

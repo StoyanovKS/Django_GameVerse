@@ -1,0 +1,20 @@
+{% extends 'base.html' %}{% load static %}
+{% block content %}
+<section id="details">
+  <div id="details-wrapper">
+    <img id="details-img"
+         alt="{{ game.title }}"
+         {% if game.screenshot_url %}src="{{ game.screenshot_url }}"{% else %}src="{% static 'images/game-default.png' %}"{% endif %}>
+    <p id="details-title">{{ game.title }}</p>
+    <div id="info-wrapper">
+      <div id="details-description"><p>Release Date: {{ game.release_date|date:"d M Y" }}</p></div>
+      <p>Challenge Level: {{ game.level }}</p>
+      <p>Platform: {{ game.platform }}</p>
+    </div>
+    <div id="action-buttons">
+      <a href="{% url 'games:edit' game.pk %}" id="edit-btn">Edit</a>
+      <a href="{% url 'games:delete' game.pk %}" id="delete-btn">Delete</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

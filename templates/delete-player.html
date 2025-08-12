@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<section id="delete">
+  <div class="form">
+    <h2>Delete Player's Profile</h2>
+    <p class="warning">This will remove your profile and all your games.</p>
+    <form method="post">{% csrf_token %}
+      <button type="submit">Delete</button>
+    </form>
+  </div>
+</section>
+{% endblock %}

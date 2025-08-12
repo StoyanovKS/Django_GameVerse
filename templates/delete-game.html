@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<section id="delete">
+  <div class="form">
+    <h2>Delete Game</h2>
+    <form method="post">{% csrf_token %}
+      <label>Title: <input value="{{ game.title }}" readonly></label>
+      <label>Challenge Level: <input value="{{ game.level }}" readonly></label>
+      <label>Screenshot URL: <input value="{{ game.screenshot_url }}" readonly></label>
+      <button type="submit">Delete</button>
+    </form>
+  </div>
+</section>
+{% endblock %}

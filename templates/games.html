@@ -1,0 +1,28 @@
+{% extends 'base.html' %}{% load static %}
+{% block content %}
+<section id="dashboard">
+  {% if games %}
+    <h2>Found {{ games|length }} games:</h2>
+    <ul class="posts">
+      {% for g in games %}
+        <li class="post">
+          <h3>{{ g.title|truncatewords:2 }}</h3>
+          <div class="image-wrap">
+            {% if g.screenshot_url %}
+              <img src="{{ g.screenshot_url }}" alt="{{ g.title }}">
+            {% else %}
+              <img src="{% static 'images/game-default.png' %}" alt="{{ g.title }}">
+            {% endif %}
+          </div>
+          <div class="level"><span>Challenge Level: {{ g.level }}</span></div>
+          <div class="btn-wrap">
+            <a href="{% url 'games:details' g.pk %}" class="details-btn">Details</a>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <h2>No games found. Post your first one.</h2>
+  {% endif %}
+</section>
+{% endblock %}
